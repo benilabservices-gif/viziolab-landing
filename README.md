@@ -58,9 +58,18 @@ Même principe que les autres projets de la stack : `netlify.toml` pointe `npm r
 - Section 15 (`#preuves`) assume honnêtement l'absence de témoignages ("pas encore de témoignages ici") plutôt que d'en inventer — à remplacer par une vraie grille de témoignages dès qu'il y en a (captures, citations, vidéos réelles).
 - Pixels Meta/TikTok/GA (voir section Tracking ci-dessus) — identifiants réels à fournir.
 - Variable d'environnement Netlify `SYSTEME_API_KEY` + règle d'automatisation Systeme.io sur les tags (voir section Synchronisation Systeme.io ci-dessus) — à faire une fois, côté Systeme.io/Netlify.
-- URL canonique (`https://viziolab.example/`) à remplacer par le vrai domaine une fois choisi.
 
 Image Open Graph : générée (`/assets/og-image.jpg`, 1200×630, reprend le hero et le mark).
+
+## Domaine personnalisé
+
+Domaine cible : **vizio-lab.online**. Le code référence déjà ce domaine (URL canonique, Open Graph). Côté Netlify :
+
+1. Site → **Domain management** → **Add a domain** → saisir `vizio-lab.online`
+2. Netlify indique alors si le domaine est déjà géré par lui (achat via Netlify) ou externe :
+   - **Domaine acheté ailleurs** (Namecheap, OVH, GoDaddy, etc.) : Netlify donne soit un enregistrement `A`/`ALIAS` (pour la racine `vizio-lab.online`) et un `CNAME` (pour `www`) à ajouter chez le registrar, soit propose de déléguer la gestion DNS complète à Netlify (plus simple si tu n'as pas déjà d'autres services sur ce domaine).
+   - Le certificat HTTPS (Let's Encrypt) se met en place automatiquement une fois le DNS propagé (quelques minutes à quelques heures).
+3. Une fois actif, définir `vizio-lab.online` comme **domaine principal** dans Netlify pour que `viziolab.netlify.app` redirige automatiquement dessus.
 
 ## Tests A/B prioritaires
 
