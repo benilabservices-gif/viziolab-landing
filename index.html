@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Challenge VizioLab — 3 jours pour construire ton projet digital</title>
+<meta name="description" content="Challenge gratuit de 3 jours : clarifie ton idée, construis ton premier actif digital avec l'IA et repars avec une feuille de route concrète. 100% en ligne, 90 minutes par jour.">
+<link rel="canonical" href="https://viziolab.example/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Challenge VizioLab — 3 jours pour construire ton projet digital">
+<meta property="og:description" content="En 3 jours, clarifie ton idée, construis ton premier actif digital et repars avec une feuille de route concrète pour passer à l'action avec l'IA.">
+<meta property="og:image" content="/assets/og-image.jpg">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/output.css">
+
+<!--
+  TRACKING — remplacer les placeholders par les identifiants réels avant mise en ligne.
+  Google Tag Manager :
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+
+  Meta Pixel :
+  <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init', 'PIXEL_ID_PLACEHOLDER');fbq('track','PageView');</script>
+-->
+</head>
+<body class="font-body">
+
+<!-- GTM (noscript) placeholder :
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+-->
+
+<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:z-[60] focus:bg-viz-yellow focus:px-4 focus:py-2 focus:text-viz-black">Aller au contenu</a>
+
+<!-- NAV -->
+<header class="fixed inset-x-0 top-0 z-40 border-b border-white/10 bg-viz-black/90 backdrop-blur">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-3">
+    <a href="#hero" class="flex items-center gap-2">
+      <img src="/assets/mark.svg" alt="" class="h-7 w-7" aria-hidden="true">
+      <span class="font-heading text-lg font-bold tracking-wide text-white">VIZIOLAB</span>
+    </a>
+    <nav class="hidden items-center gap-8 md:flex" aria-label="Navigation principale">
+      <a href="#methode-jours" class="eyebrow text-white/70 hover:text-white">Le challenge</a>
+      <a href="#pour-qui" class="eyebrow text-white/70 hover:text-white">Pour qui</a>
+      <a href="#faq" class="eyebrow text-white/70 hover:text-white">FAQ</a>
+    </nav>
+    <button type="button" class="btn-primary hidden md:inline-flex" data-open-form data-track="cta_click" data-track-label="nav">Rejoindre</button>
+    <button type="button" class="p-2 text-white md:hidden" data-nav-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Ouvrir le menu">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+  <div id="mobile-menu" data-nav-menu class="hidden flex-col gap-1 border-t border-white/10 bg-viz-black px-5 py-4 md:hidden">
+    <a href="#methode-jours" class="py-2 font-body text-white/80">Le challenge</a>
+    <a href="#pour-qui" class="py-2 font-body text-white/80">Pour qui</a>
+    <a href="#faq" class="py-2 font-body text-white/80">FAQ</a>
+    <button type="button" class="btn-primary mt-3 w-full" data-open-form data-track="cta_click" data-track-label="nav_mobile">Rejoindre le challenge</button>
+  </div>
+</header>
+
+<main id="hero">
+
+<!-- SECTION 1 — HERO -->
+<section class="relative overflow-hidden px-5 pb-16 pt-32 sm:pb-24 sm:pt-40">
+  <img src="/assets/mark.svg" alt="" class="hero-mark -right-24 -top-16 h-[28rem] w-[28rem] sm:-right-10" aria-hidden="true">
+  <div class="relative mx-auto max-w-3xl text-center">
+    <span class="badge-live mx-auto"><span class="badge-live__dot"></span>Challenge gratuit — 3 jours</span>
+    <h1 class="mt-6 font-display text-4xl uppercase leading-[1.08] tracking-tight sm:text-6xl">
+      Arrête de <span class="text-viz-red">chercher</span> ton business digital.<br>
+      Commence à le <span class="text-viz-yellow">construire</span>.
+    </h1>
+    <p class="mx-auto mt-6 max-w-xl font-body text-lg text-viz-fog">
+      En 3 jours, passe de 10 idées dans ta tête à 1 projet entre tes mains&nbsp;: clarifie ton idée, construis ton premier actif digital, et découvre comment utiliser l'IA pour accélérer ton passage à l'action.
+    </p>
+    <div class="mt-8 flex justify-center">
+      <button type="button" class="btn-primary text-base" data-open-form data-track="cta_click" data-track-label="hero">Je rejoins le challenge gratuit</button>
+    </div>
+    <p class="mt-4 font-body text-sm text-viz-fog">100&nbsp;% en ligne • 3 jours • 90 minutes par jour</p>
+  </div>
+</section>
+
+<!-- SECTION 2 — LE PROBLEME -->
+<section id="probleme" class="reveal border-t border-white/10 px-5 py-20">
+  <div class="mx-auto max-w-3xl">
+    <h2 class="text-center font-heading text-2xl font-bold leading-snug sm:text-3xl">
+      Tu n'as probablement pas un problème d'idées.<br class="hidden sm:block"> Tu as un problème de direction.
+    </h2>
+    <ul class="mt-10 space-y-4">
+      <li class="flex items-start gap-4 border-l-2 border-viz-red/60 bg-white/[0.02] px-4 py-3">
+        <span class="font-body text-viz-fog">Tu regardes des vidéos sur le business digital, mais tu ne passes pas à l'action.</span>
+      </li>
+      <li class="flex items-start gap-4 border-l-2 border-viz-red/60 bg-white/[0.02] px-4 py-3">
+        <span class="font-body text-viz-fog">Tu as 10 idées et tu ne sais pas laquelle choisir.</span>
+      </li>
+      <li class="flex items-start gap-4 border-l-2 border-viz-red/60 bg-white/[0.02] px-4 py-3">
+        <span class="font-body text-viz-fog">Tu commences plusieurs projets et tu n'en termines aucun.</span>
+      </li>
+      <li class="flex items-start gap-4 border-l-2 border-viz-red/60 bg-white/[0.02] px-4 py-3">
+        <span class="font-body text-viz-fog">Tu veux utiliser l'IA, mais tu ne sais pas quoi automatiser.</span>
+      </li>
+      <li class="flex items-start gap-4 border-l-2 border-viz-red/60 bg-white/[0.02] px-4 py-3">
+        <span class="font-body text-viz-fog">Tu publies sur les réseaux sans véritable stratégie.</span>
+      </li>
+      <li class="flex items-start gap-4 border-l-2 border-viz-red/60 bg-white/[0.02] px-4 py-3">
+        <span class="font-body text-viz-fog">Tu veux gagner de l'argent en ligne, mais tu ne sais pas par où commencer.</span>
+      </li>
+      <li class="flex items-start gap-4 border-l-2 border-viz-red/60 bg-white/[0.02] px-4 py-3">
+        <span class="font-body text-viz-fog">Tu apprends beaucoup, mais tu construis peu.</span>
+      </li>
+    </ul>
+    <p class="mt-10 text-center font-heading text-lg text-viz-yellow">Ce challenge a été conçu pour changer ça.</p>
+  </div>
+</section>
+
+<!-- SECTION 3 — LA PROMESSE (AVANT / APRES) -->
+<section class="reveal border-t border-white/10 px-5 py-20">
+  <div class="mx-auto max-w-4xl">
+    <h2 class="text-center font-heading text-2xl font-bold uppercase sm:text-3xl">En 3 jours, tu vas passer de...</h2>
+    <div class="mt-10 grid gap-4 sm:grid-cols-2">
+      <div class="border border-viz-red/30 bg-viz-red/[0.06] p-6">
+        <p class="eyebrow text-viz-red">Avant</p>
+        <ul class="mt-4 space-y-3 font-body text-white/80">
+          <li>❌ Confusion</li>
+          <li>❌ Trop d'idées</li>
+          <li>❌ Aucun plan</li>
+          <li>❌ Consommation de contenu</li>
+          <li>❌ Difficulté à passer à l'action</li>
+        </ul>
+      </div>
+      <div class="border border-viz-yellow/30 bg-viz-yellow/[0.06] p-6">
+        <p class="eyebrow text-viz-yellow">Après</p>
+        <ul class="mt-4 space-y-3 font-body text-white/80">
+          <li>✅ Une opportunité prioritaire</li>
+          <li>✅ Un premier actif digital</li>
+          <li>✅ Un plan d'action</li>
+          <li>✅ Une meilleure compréhension de l'IA</li>
+          <li>✅ Une prochaine étape claire</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4 — COMMENT FONCTIONNE LE CHALLENGE -->
+<section id="methode-jours" class="reveal border-t border-white/10 px-5 py-20">
+  <div class="mx-auto max-w-3xl text-center">
+    <h2 class="font-heading text-2xl font-bold uppercase sm:text-3xl">Comment fonctionne le challenge</h2>
+    <p class="mt-3 font-body text-viz-fog">Trois jours. Environ 90 minutes par jour. Un livrable concret chaque jour.</p>
+  </div>
+
+  <div class="mx-auto mt-12 flex max-w-3xl flex-col gap-10">
+
+    <div class="flex gap-5">
+      <div class="flex flex-col items-center">
+        <span class="font-display text-2xl text-viz-red">01</span>
+        <div class="rail-segment mt-2 h-full min-h-[9rem] bg-viz-red" data-rail></div>
+      </div>
+      <div class="viz-card viz-card--red flex-1 p-6">
+        <p class="eyebrow text-viz-red">Jour 1 — Explore</p>
+        <h3 class="mt-2 font-heading text-xl font-bold">Trouve ton opportunité digitale</h3>
+        <ul class="mt-4 space-y-2 font-body text-sm text-white/75">
+          <li>Fais ton diagnostic</li>
+          <li>Identifie tes compétences et tes intérêts</li>
+          <li>Identifie les problèmes que tu peux résoudre</li>
+          <li>Explore les modèles digitaux pertinents</li>
+          <li>Sélectionne une opportunité prioritaire</li>
+        </ul>
+        <p class="mt-5 border-t border-white/10 pt-4 font-heading text-sm font-bold text-viz-yellow">Livrable — ton opportunité digitale prioritaire</p>
+      </div>
+    </div>
+
+    <div class="flex gap-5">
+      <div class="flex flex-col items-center">
+        <span class="font-display text-2xl text-white">02</span>
+        <div class="rail-segment mt-2 h-full min-h-[9rem] bg-white" data-rail></div>
+      </div>
+      <div class="viz-card flex-1 p-6">
+        <p class="eyebrow text-white/70">Jour 2 — Construis</p>
+        <h3 class="mt-2 font-heading text-xl font-bold">Transforme ton idée en premier actif digital</h3>
+        <p class="mt-4 font-body text-sm text-white/75">Tu apprends à utiliser l'IA pour transformer ton idée en premier livrable concret&nbsp;: contenu, offre, produit digital, concept YouTube, branding, service ou prototype, selon ton projet.</p>
+        <p class="mt-5 border-t border-white/10 pt-4 font-heading text-sm font-bold text-viz-yellow">Livrable — ton premier actif digital</p>
+      </div>
+    </div>
+
+    <div class="flex gap-5">
+      <div class="flex flex-col items-center">
+        <span class="font-display text-2xl text-viz-yellow">03</span>
+      </div>
+      <div class="viz-card viz-card--yellow flex-1 p-6">
+        <p class="eyebrow text-viz-yellow">Jour 3 — Accélère</p>
+        <h3 class="mt-2 font-heading text-xl font-bold">Construis ton plan d'action</h3>
+        <ul class="mt-4 space-y-2 font-body text-sm text-white/75">
+          <li>Identifie ton principal blocage</li>
+          <li>Définis tes prochaines étapes</li>
+          <li>Construis ton plan d'action</li>
+          <li>Comprends comment structurer ton projet</li>
+          <li>Découvre les leviers d'acquisition et de monétisation</li>
+          <li>Détermine si tu as besoin d'un accompagnement</li>
+        </ul>
+        <p class="mt-5 border-t border-white/10 pt-4 font-heading text-sm font-bold text-viz-yellow">Livrable — ta feuille de route personnalisée</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 5 — CE QUE TU VAS CONSTRUIRE -->
+<section class="reveal border-t border-white/10 py-20">
+  <div class="mx-auto max-w-3xl px-5 text-center">
+    <h2 class="font-heading text-2xl font-bold uppercase sm:text-3xl">Ce que tu vas construire</h2>
+  </div>
+  <div class="snap-row mt-10 flex gap-4 overflow-x-auto px-5 pb-4 sm:justify-center">
+    <div class="viz-card viz-card--red w-64 shrink-0 p-6 text-center">
+      <p class="font-display text-3xl">🎯</p>
+      <p class="mt-3 eyebrow text-viz-red">Jour 1</p>
+      <p class="mt-1 font-heading font-bold">Opportunité</p>
+    </div>
+    <div class="viz-card w-64 shrink-0 p-6 text-center">
+      <p class="font-display text-3xl">⚙️</p>
+      <p class="mt-3 eyebrow text-white/70">Jour 2</p>
+      <p class="mt-1 font-heading font-bold">Premier actif</p>
+    </div>
+    <div class="viz-card viz-card--yellow w-64 shrink-0 p-6 text-center">
+      <p class="font-display text-3xl">🚀</p>
+      <p class="mt-3 eyebrow text-viz-yellow">Jour 3</p>
+      <p class="mt-1 font-heading font-bold">Roadmap</p>
+    </div>
+  </div>
+  <p class="mx-auto mt-10 max-w-xl px-5 text-center font-heading text-lg text-viz-yellow">Tu ne repars pas seulement avec des notes. Tu repars avec quelque chose de construit.</p>
+</section>
+
+<!-- SECTION 6 — L'IA AU COEUR DU CHALLENGE -->
+<section id="ia" class="reveal border-t border-white/10 px-5 py-20">
+  <div class="mx-auto max-w-3xl">
+    <h2 class="text-center font-heading text-2xl font-bold uppercase sm:text-3xl">L'IA comme accélérateur, pas comme raccourci</h2>
+    <div class="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
+      <div class="border border-white/10 bg-white/[0.02] p-4 text-center font-body text-sm text-white/80">Trouver des angles</div>
+      <div class="border border-white/10 bg-white/[0.02] p-4 text-center font-body text-sm text-white/80">Structurer une idée</div>
+      <div class="border border-white/10 bg-white/[0.02] p-4 text-center font-body text-sm text-white/80">Produire du contenu</div>
+      <div class="border border-white/10 bg-white/[0.02] p-4 text-center font-body text-sm text-white/80">Créer des visuels</div>
+      <div class="border border-white/10 bg-white/[0.02] p-4 text-center font-body text-sm text-white/80">Construire des offres</div>
+      <div class="border border-white/10 bg-white/[0.02] p-4 text-center font-body text-sm text-white/80">Gagner du temps</div>
+      <div class="col-span-2 border border-white/10 bg-white/[0.02] p-4 text-center font-body text-sm text-white/80 sm:col-span-2">Automatiser certaines tâches</div>
+    </div>
+    <p class="mt-8 border-l-2 border-viz-yellow/60 bg-viz-yellow/[0.05] p-5 font-body text-white/85">
+      L'objectif n'est pas de remplacer l'humain par l'IA. L'objectif est de te permettre de construire plus vite et plus intelligemment.
+    </p>
+  </div>
+</section>
+
+<!-- SECTION 7 — POUR QUI -->
+<section id="pour-qui" class="reveal border-t border-white/10 px-5 py-20">
+  <div class="mx-auto max-w-4xl">
+    <h2 class="text-center font-heading text-2xl font-bold uppercase sm:text-3xl">Pour qui ?</h2>
+    <div class="mt-10 grid gap-4 sm:grid-cols-2">
+      <div class="border border-white/10 bg-white/[0.02] p-6">
+        <p class="eyebrow text-viz-yellow">Ce challenge est pour toi si</p>
+        <ul class="mt-4 space-y-3 font-body text-white/80">
+          <li>✅ Tu veux te lancer dans le digital.</li>
+          <li>✅ Tu as une idée mais tu ne sais pas comment la structurer.</li>
+          <li>✅ Tu veux utiliser l'IA.</li>
+          <li>✅ Tu veux créer du contenu.</li>
+          <li>✅ Tu veux développer une activité en ligne.</li>
+          <li>✅ Tu veux transformer une compétence en offre.</li>
+          <li>✅ Tu veux enfin passer à l'action.</li>
+        </ul>
+      </div>
+      <div class="border border-white/10 bg-white/[0.02] p-6">
+        <p class="eyebrow text-viz-red">Ce challenge n'est pas pour toi si</p>
+        <ul class="mt-4 space-y-3 font-body text-white/60">
+          <li>❌ Tu cherches une formule magique.</li>
+          <li>❌ Tu veux devenir riche rapidement.</li>
+          <li>❌ Tu ne veux rien mettre en pratique.</li>
+          <li>❌ Tu cherches des revenus garantis.</li>
+          <li>❌ Tu veux simplement regarder des vidéos sans agir.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 8 — CE QUE TU VAS RECEVOIR -->
+<section id="recevoir" class="reveal border-t border-white/10 px-5 py-20">
+  <div class="viz-card viz-card--yellow mx-auto max-w-2xl p-8">
+    <div class="flex items-start justify-between">
+      <h2 class="font-heading text-xl font-bold uppercase">Ce que tu vas recevoir</h2>
+      <span class="eyebrow shrink-0 border border-viz-yellow px-3 py-1 text-viz-yellow">Gratuit</span>
+    </div>
+    <ul class="mt-6 space-y-3 font-body text-white/85">
+      <li>🎁 Accès au challenge 3 jours</li>
+      <li>🎁 Workbook / exercices pratiques</li>
+      <li>🎁 Diagnostic personnel</li>
+      <li>🎁 Méthodes de travail avec l'IA</li>
+      <li>🎁 Feuille de route</li>
+      <li>🎁 Accès à la communauté VizioLab pendant le challenge</li>
+    </ul>
+    <button type="button" class="btn-primary mt-8 w-full" data-open-form data-track="cta_click" data-track-label="recevoir">Je rejoins le challenge gratuit</button>
+  </div>
+</section>
+
+<!-- SECTION 9 — METHODE VIZIOLAB -->
+<section class="reveal border-t border-white/10 px-5 py-20">
+  <div class="mx-auto max-w-3xl text-center">
+    <h2 class="font-heading text-2xl font-bold uppercase sm:text-3xl">La méthode VizioLab</h2>
+    <div class="mt-8 flex flex-wrap items-center justify-center gap-2 font-heading text-sm font-bold uppercase tracking-wide">
+      <span class="border border-viz-red/50 px-3 py-1.5 text-viz-red">Apprendre</span>
+      <span class="text-viz-fog">→</span>
+      <span class="border border-white/30 px-3 py-1.5 text-white">Construire</span>
+      <span class="text-viz-fog">→</span>
+      <span class="border border-white/30 px-3 py-1.5 text-white">Tester</span>
+      <span class="text-viz-fog">→</span>
+      <span class="border border-white/30 px-3 py-1.5 text-white">Mesurer</span>
+      <span class="text-viz-fog">→</span>
+      <span class="border border-viz-yellow/50 px-3 py-1.5 text-viz-yellow">Améliorer</span>
+    </div>
+    <p class="mt-8 font-body text-viz-fog">VizioLab est un écosystème construit autour de la création de contenu, de l'IA, du design, de la vidéo, de YouTube, du business digital et de la monétisation des compétences. Le challenge est ta première mise en pratique concrète de cette méthode.</p>
+  </div>
+</section>
+
+<!-- SECTION 10 — POURQUOI VIZIOLAB -->
+<section class="reveal border-t border-white/10 px-5 py-20">
+  <div class="mx-auto max-w-3xl">
+    <h2 class="text-center font-heading text-2xl font-bold uppercase sm:text-3xl">Pourquoi VizioLab ?</h2>
+    <ul class="mt-8 space-y-3 font-body text-white/80">
+      <li>— Une approche pratique, orientée production.</li>
+      <li>— L'apprentissage par projet.</li>
+      <li>— L'utilisation de l'IA comme levier concret.</li>
+      <li>— Des compétences numériques transférables.</li>
+      <li>— Un accompagnement et une communauté.</li>
+      <li>— Une orientation constante vers l'action.</li>
+    </ul>
+    <div class="mt-8 border border-dashed border-white/15 p-6 text-center font-body text-sm text-viz-fog">
+      Preuves concrètes à venir — captures, réalisations, retours de participants.
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 11 — L'ENGAGEMENT -->
+<section id="engagement" class="reveal border-t border-white/10 px-5 py-20">
+  <div class="mx-auto max-w-2xl">
+    <h2 class="text-center font-heading text-2xl font-bold uppercase sm:text-3xl">Ce que nous te demandons</h2>
+    <ol class="mt-10 space-y-4">
+      <li class="flex items-center gap-4"><span class="font-display text-viz-yellow">01</span><span class="font-body text-white/85">Sois présent.</span></li>
+      <li class="flex items-center gap-4"><span class="font-display text-viz-yellow">02</span><span class="font-body text-white/85">Fais les exercices.</span></li>
+      <li class="flex items-center gap-4"><span class="font-display text-viz-yellow">03</span><span class="font-body text-white/85">Partage ton avancement.</span></li>
+      <li class="flex items-center gap-4"><span class="font-display text-viz-yellow">04</span><span class="font-body text-white/85">Pose tes questions.</span></li>
+      <li class="flex items-center gap-4"><span class="font-display text-viz-yellow">05</span><span class="font-body text-white/85">Construis réellement quelque chose.</span></li>
+    </ol>
+    <p class="mt-10 text-center font-heading text-lg text-viz-yellow">Le challenge fonctionne si tu participes réellement.</p>
+  </div>
+</section>
+
+<!-- SECTION 12 — CTA INTERMEDIAIRE -->
+<section class="reveal relative overflow-hidden border-t border-white/10 px-5 py-20 text-center">
+  <img src="/assets/mark.svg" alt="" class="hero-mark -left-16 top-0 h-64 w-64 opacity-10" aria-hidden="true">
+  <div class="relative">
+    <button type="button" class="btn-primary text-base" data-open-form data-track="cta_click" data-track-label="milieu">Je veux construire mon projet en 3 jours</button>
+    <p class="mt-4 font-body text-sm text-viz-fog">Gratuit • Pratique • En ligne</p>
+  </div>
+</section>
+
+<!-- SECTION 13 — LA SUITE APRES LE CHALLENGE -->
+<section id="accelerator" class="reveal border-t border-white/10 px-5 py-20">
+  <div class="mx-auto max-w-3xl">
+    <h2 class="text-center font-heading text-2xl font-bold uppercase sm:text-3xl">Et après les 3 jours ?</h2>
+    <p class="mt-4 text-center font-body text-viz-fog">À la fin du challenge, certains participants voudront continuer seuls. D'autres auront besoin d'un cadre, d'un suivi et d'une stratégie adaptée à leur situation. Les deux chemins sont valables.</p>
+
+    <div class="mt-10 border border-white/10 bg-white/[0.02] p-6 sm:p-8">
+      <p class="eyebrow text-viz-yellow">VizioLab Accelerator</p>
+      <h3 class="mt-2 font-heading text-xl font-bold">Accompagnement personnalisé de 90 jours</h3>
+      <p class="mt-3 font-body text-white/75">Transformer une idée ou une compétence digitale en projet structuré, avec une stratégie, une offre, un système de contenu et un plan de monétisation adaptés à ta situation.</p>
+      <div class="mt-6 grid gap-3 sm:grid-cols-3">
+        <div class="border border-white/10 p-4">
+          <p class="eyebrow text-viz-red">Mois 1</p>
+          <p class="mt-1 font-body text-sm text-white/80">Clarté & positionnement</p>
+        </div>
+        <div class="border border-white/10 p-4">
+          <p class="eyebrow text-white/70">Mois 2</p>
+          <p class="mt-1 font-body text-sm text-white/80">Production & acquisition</p>
+        </div>
+        <div class="border border-white/10 p-4">
+          <p class="eyebrow text-viz-yellow">Mois 3</p>
+          <p class="mt-1 font-body text-sm text-white/80">Monétisation & optimisation</p>
+        </div>
+      </div>
+      <p class="mt-5 font-body text-xs text-viz-fog">L'accompagnement n'est pas obligatoire — il est proposé à celles et ceux pour qui c'est pertinent.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 14 — LE DIAGNOSTIC PERSONNALISE -->
+<section id="diagnostic" class="reveal border-t border-white/10 px-5 py-20">
+  <div class="mx-auto max-w-2xl text-center">
+    <h2 class="font-heading text-2xl font-bold uppercase sm:text-3xl">Tu ne sais pas encore si tu as besoin d'un accompagnement ?</h2>
+    <p class="mt-5 font-body text-white/80">C'est justement le rôle du diagnostic. Après le challenge, les participants intéressés peuvent demander un diagnostic pour faire le point sur leur situation, leur objectif, leur modèle digital, leur blocage, leurs priorités et leur plan d'action.</p>
+    <p class="mt-4 font-body text-white/80">Si l'accompagnement est pertinent pour toi, VizioLab te présentera la solution adaptée. Sinon, tu repars avec tes prochaines étapes.</p>
+  </div>
+</section>
+
+<!-- SECTION 15 — PREUVE SOCIALE -->
+<section id="preuves" class="reveal border-t border-white/10 px-5 py-20">
+  <div class="mx-auto max-w-4xl">
+    <h2 class="text-center font-heading text-2xl font-bold uppercase sm:text-3xl">Ils ont participé</h2>
+    <div class="mt-10 grid gap-4 sm:grid-cols-3">
+      <div class="flex aspect-square items-center justify-center border border-dashed border-white/15 font-body text-xs text-viz-fog">Témoignage à venir</div>
+      <div class="flex aspect-square items-center justify-center border border-dashed border-white/15 font-body text-xs text-viz-fog">Témoignage à venir</div>
+      <div class="flex aspect-square items-center justify-center border border-dashed border-white/15 font-body text-xs text-viz-fog">Témoignage à venir</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 16 — FAQ -->
+<section id="faq" class="reveal border-t border-white/10 px-5 py-20">
+  <div class="mx-auto max-w-2xl">
+    <h2 class="text-center font-heading text-2xl font-bold uppercase sm:text-3xl">Questions fréquentes</h2>
+    <div class="mt-10 divide-y divide-white/10 border-y border-white/10">
+
+      <div>
+        <button type="button" class="faq-trigger flex w-full items-center justify-between py-5 text-left font-heading font-bold" aria-expanded="false">
+          Est-ce vraiment gratuit ?
+          <span class="faq-chevron text-xl text-viz-fog">+</span>
+        </button>
+        <div class="faq-panel"><div class="pb-5 font-body text-white/70">Oui, le challenge est gratuit.</div></div>
+      </div>
+
+      <div>
+        <button type="button" class="faq-trigger flex w-full items-center justify-between py-5 text-left font-heading font-bold" aria-expanded="false">
+          Dois-je avoir une idée de business ?
+          <span class="faq-chevron text-xl text-viz-fog">+</span>
+        </button>
+        <div class="faq-panel"><div class="pb-5 font-body text-white/70">Non. Une partie du Jour 1 t'aide justement à identifier une opportunité si tu n'en as pas encore.</div></div>
+      </div>
+
+      <div>
+        <button type="button" class="faq-trigger flex w-full items-center justify-between py-5 text-left font-heading font-bold" aria-expanded="false">
+          Dois-je déjà connaître l'IA ?
+          <span class="faq-chevron text-xl text-viz-fog">+</span>
+        </button>
+        <div class="faq-panel"><div class="pb-5 font-body text-white/70">Non, aucune connaissance préalable n'est nécessaire. Tu apprends à t'en servir pendant le challenge.</div></div>
+      </div>
+
+      <div>
+        <button type="button" class="faq-trigger flex w-full items-center justify-between py-5 text-left font-heading font-bold" aria-expanded="false">
+          Est-ce adapté aux débutants ?
+          <span class="faq-chevron text-xl text-viz-fog">+</span>
+        </button>
+        <div class="faq-panel"><div class="pb-5 font-body text-white/70">Oui, le challenge est conçu pour être accessible aux débutants comme à ceux qui ont déjà commencé.</div></div>
+      </div>
+
+      <div>
+        <button type="button" class="faq-trigger flex w-full items-center justify-between py-5 text-left font-heading font-bold" aria-expanded="false">
+          Combien de temps dois-je prévoir ?
+          <span class="faq-chevron text-xl text-viz-fog">+</span>
+        </button>
+        <div class="faq-panel"><div class="pb-5 font-body text-white/70">Environ 90 minutes par jour, pendant 3 jours.</div></div>
+      </div>
+
+      <div>
+        <button type="button" class="faq-trigger flex w-full items-center justify-between py-5 text-left font-heading font-bold" aria-expanded="false">
+          Dois-je apparaître à l'écran ?
+          <span class="faq-chevron text-xl text-viz-fog">+</span>
+        </button>
+        <div class="faq-panel"><div class="pb-5 font-body text-white/70">Non, ce n'est pas requis.</div></div>
+      </div>
+
+      <div>
+        <button type="button" class="faq-trigger flex w-full items-center justify-between py-5 text-left font-heading font-bold" aria-expanded="false">
+          Puis-je participer depuis mon téléphone ?
+          <span class="faq-chevron text-xl text-viz-fog">+</span>
+        </button>
+        <div class="faq-panel"><div class="pb-5 font-body text-white/70">Oui, le challenge est accessible depuis un smartphone.</div></div>
+      </div>
+
+      <div>
+        <button type="button" class="faq-trigger flex w-full items-center justify-between py-5 text-left font-heading font-bold" aria-expanded="false">
+          Vais-je apprendre à gagner de l'argent en ligne ?
+          <span class="faq-chevron text-xl text-viz-fog">+</span>
+        </button>
+        <div class="faq-panel"><div class="pb-5 font-body text-white/70">Tu vas apprendre à construire un projet digital et à comprendre les leviers d'acquisition et de monétisation. Aucun résultat financier n'est garanti.</div></div>
+      </div>
+
+      <div>
+        <button type="button" class="faq-trigger flex w-full items-center justify-between py-5 text-left font-heading font-bold" aria-expanded="false">
+          Que se passe-t-il après les 3 jours ?
+          <span class="faq-chevron text-xl text-viz-fog">+</span>
+        </button>
+        <div class="faq-panel"><div class="pb-5 font-body text-white/70">Tu repars avec un actif construit et une feuille de route. Tu peux ensuite continuer seul ou demander un diagnostic personnalisé pour évaluer si un accompagnement te serait utile.</div></div>
+      </div>
+
+      <div>
+        <button type="button" class="faq-trigger flex w-full items-center justify-between py-5 text-left font-heading font-bold" aria-expanded="false">
+          L'accompagnement est-il obligatoire ?
+          <span class="faq-chevron text-xl text-viz-fog">+</span>
+        </button>
+        <div class="faq-panel"><div class="pb-5 font-body text-white/70">Non. Il est proposé uniquement à celles et ceux pour qui c'est pertinent, à l'issue du diagnostic.</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 17 — CTA FINAL -->
+<section class="reveal relative overflow-hidden border-t border-white/10 px-5 py-24 text-center">
+  <img src="/assets/mark.svg" alt="" class="hero-mark -right-20 bottom-0 h-96 w-96 opacity-20" aria-hidden="true">
+  <img src="/assets/mark.svg" alt="" class="hero-mark -left-20 top-0 h-72 w-72 opacity-10" aria-hidden="true">
+  <div class="relative mx-auto max-w-2xl">
+    <h2 class="font-display text-3xl uppercase leading-tight sm:text-4xl">Ton projet ne va pas se construire tout seul.</h2>
+    <p class="mt-5 font-body text-lg text-viz-fog">Donne-toi 3 jours pour clarifier, construire et décider de ta prochaine étape.</p>
+    <button type="button" class="btn-primary mt-8 text-base" data-open-form data-track="cta_click" data-track-label="final">Je rejoins le challenge</button>
+    <p class="mt-4 font-body text-sm text-viz-fog">Gratuit • 3 jours • 100&nbsp;% en ligne</p>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/10 px-5 py-10">
+  <div class="mx-auto flex max-w-6xl flex-col items-center gap-4 text-center sm:flex-row sm:justify-between sm:text-left">
+    <a href="#hero" class="flex items-center gap-2">
+      <img src="/assets/mark.svg" alt="VizioLab" class="h-6 w-6">
+      <span class="font-heading font-bold tracking-wide">VIZIOLAB</span>
+    </a>
+    <nav class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-body text-sm text-viz-fog" aria-label="Liens légaux">
+      <a href="/mentions-legales.html" class="hover:text-white">Mentions légales</a>
+      <a href="/confidentialite.html" class="hover:text-white">Confidentialité</a>
+      <a href="/contact.html" class="hover:text-white">Contact</a>
+    </nav>
+    <p class="font-body text-xs text-viz-fog">© <span data-year></span> VizioLab. Tous droits réservés.</p>
+  </div>
+</footer>
+
+<!-- CTA STICKY MOBILE -->
+<div class="sticky-cta fixed inset-x-0 bottom-0 z-30 border-t border-white/10 bg-viz-black/95 p-3 backdrop-blur sm:hidden" data-sticky-cta>
+  <button type="button" class="btn-primary w-full" data-open-form data-track="cta_click" data-track-label="sticky_mobile">Je rejoins le challenge gratuit</button>
+</div>
+
+<!-- MODALE FORMULAIRE -->
+<div class="modal-overlay hidden" data-form-overlay>
+  <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="form-modal-title">
+    <button type="button" class="absolute right-4 top-4 p-2 text-white/60 hover:text-white" data-close-form aria-label="Fermer le formulaire">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <h2 id="form-modal-title" class="font-heading text-xl font-bold uppercase">Rejoins le challenge</h2>
+    <p class="mt-2 font-body text-sm text-viz-fog">3 jours, gratuit, 100&nbsp;% en ligne. On te répond par email et WhatsApp.</p>
+
+    <form class="mt-6 space-y-5" data-signup-form novalidate>
+      <div>
+        <label for="prenom" class="eyebrow text-white/70">Prénom</label>
+        <input id="prenom" name="prenom" type="text" required autocomplete="given-name" class="field-input mt-2">
+      </div>
+      <div>
+        <label for="email" class="eyebrow text-white/70">Email</label>
+        <input id="email" name="email" type="email" required autocomplete="email" class="field-input mt-2">
+      </div>
+      <div>
+        <label for="whatsapp" class="eyebrow text-white/70">WhatsApp</label>
+        <input id="whatsapp" name="whatsapp" type="tel" required autocomplete="tel" class="field-input mt-2" placeholder="+229 ...">
+      </div>
+      <div>
+        <label for="objectif" class="eyebrow text-white/70">Quel est ton principal objectif ?</label>
+        <input id="objectif" name="objectif" type="text" class="field-input mt-2" placeholder="Ex. lancer un projet, créer du contenu, monétiser une compétence...">
+      </div>
+      <fieldset>
+        <legend class="eyebrow text-white/70">Où en es-tu actuellement ?</legend>
+        <div class="mt-2 space-y-2" data-situation-group>
+          <button type="button" class="choice-card" data-situation="EXPLORATION" aria-pressed="false">Je cherche encore mon idée.</button>
+          <button type="button" class="choice-card" data-situation="IDEE" aria-pressed="false">J'ai une idée.</button>
+          <button type="button" class="choice-card" data-situation="DEMARRAGE" aria-pressed="false">J'ai commencé.</button>
+          <button type="button" class="choice-card" data-situation="CROISSANCE" aria-pressed="false">J'ai déjà une activité.</button>
+          <button type="button" class="choice-card" data-situation="CROISSANCE" aria-pressed="false">Je veux développer mon activité.</button>
+        </div>
+        <input type="hidden" name="situation" data-situation-value required>
+      </fieldset>
+      <div>
+        <label for="blocage" class="eyebrow text-white/70">Quel est ton principal blocage aujourd'hui ? <span class="text-viz-fog">(optionnel)</span></label>
+        <textarea id="blocage" name="blocage" rows="3" class="field-input mt-2"></textarea>
+      </div>
+
+      <p class="hidden font-body text-sm text-viz-red" data-form-error role="alert"></p>
+
+      <button type="submit" class="btn-primary w-full">Je rejoins le challenge gratuit</button>
+    </form>
+
+    <div class="hidden text-center" data-form-success>
+      <p class="font-heading text-lg font-bold text-viz-yellow">C'est noté 🎉</p>
+      <p class="mt-2 font-body text-white/80">Tu vas recevoir les infos du challenge par email et WhatsApp.</p>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="/js/main.js"></script>
+</body>
+</html>

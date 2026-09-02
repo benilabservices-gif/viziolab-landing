@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-body bg-viz-black text-white antialiased;
+  }
+  h1, h2, h3 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  /* --- Boutons : coin coupe a 135 deg, ecoute du mark --- */
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center gap-2 bg-viz-yellow px-7 py-4 font-heading text-sm font-bold uppercase tracking-wide text-viz-black transition hover:brightness-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-viz-yellow;
+    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+  }
+  .btn-secondary {
+    @apply relative inline-flex items-center justify-center gap-2 border border-white/25 px-7 py-4 font-heading text-sm font-bold uppercase tracking-wide text-white transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white;
+    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+  }
+
+  /* --- Carte signature : coin coupe + languette de couleur dans l'encoche --- */
+  .viz-card {
+    @apply relative bg-viz-card;
+    clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%);
+  }
+  .viz-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    pointer-events: none;
+  }
+  .viz-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 22px;
+    height: 22px;
+    background: var(--viz-tab, #f4e409);
+    clip-path: polygon(100% 0, 100% 100%, 0 0);
+  }
+  .viz-card--red { --viz-tab: #e8332a; }
+  .viz-card--yellow { --viz-tab: #f4e409; }
+
+  /* --- Cordon de fabrication : le mark du logo devient la ligne de progression Jour 1-2-3 --- */
+  .rail-segment {
+    @apply w-2;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 18px));
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .rail-segment.is-visible {
+    transform: scaleY(1);
+  }
+
+  /* --- Eyebrow / labels techniques (esprit "labo") --- */
+  .eyebrow {
+    @apply font-heading text-xs font-bold uppercase tracking-[0.2em];
+  }
+
+  .badge-live {
+    @apply relative inline-flex items-center gap-2 border border-viz-yellow/60 px-4 py-2 font-heading text-xs font-bold uppercase tracking-[0.15em] text-viz-yellow;
+  }
+  .badge-live__dot {
+    @apply h-1.5 w-1.5 rounded-full bg-viz-red;
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  /* --- Reveal au scroll --- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(1.5rem);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* --- Fond hero : le mark agrandi, flou, en filigrane --- */
+  .hero-mark {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.16;
+    filter: blur(2px);
+    animation: hero-mark-drift 24s ease-in-out infinite;
+  }
+
+  /* --- CTA sticky mobile --- */
+  .sticky-cta {
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+  }
+  .sticky-cta.is-visible {
+    transform: translateY(0);
+  }
+
+  /* --- Modale formulaire --- */
+  .modal-overlay {
+    @apply fixed inset-0 z-50 flex items-end justify-center bg-black/80 backdrop-blur-sm sm:items-center;
+  }
+  .modal-panel {
+    @apply relative max-h-[92vh] w-full max-w-lg overflow-y-auto bg-viz-card p-6 sm:p-8;
+    /* Coin coupe en bas a gauche (et non en haut a droite) pour ne jamais chevaucher le bouton de fermeture. */
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+  }
+
+  /* --- Champs formulaire --- */
+  .field-input {
+    @apply w-full border border-white/15 bg-black/40 px-4 py-3 font-body text-white placeholder:text-viz-fog focus:border-viz-yellow focus:outline-none;
+  }
+  .choice-card {
+    @apply w-full cursor-pointer border border-white/15 bg-black/30 px-4 py-3 text-left font-body text-sm text-white transition hover:border-white/30;
+  }
+  .choice-card[aria-pressed="true"] {
+    @apply border-viz-yellow bg-viz-yellow/10;
+  }
+
+  /* --- FAQ --- */
+  .faq-chevron {
+    transition: transform 0.3s ease;
+  }
+  .faq-trigger[aria-expanded="true"] .faq-chevron {
+    transform: rotate(45deg);
+    color: #f4e409;
+  }
+  .faq-panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.35s ease;
+  }
+  .faq-panel > div {
+    min-height: 0;
+    overflow: hidden;
+  }
+  .faq-trigger[aria-expanded="true"] + .faq-panel {
+    grid-template-rows: 1fr;
+  }
+
+  /* --- Snap scroll mobile (Jour 1/2/3 recap) --- */
+  .snap-row {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .snap-row > * {
+    scroll-snap-align: start;
+  }
+
+  .texture-grid {
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+
+@keyframes hero-mark-drift {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-2%, 3%) rotate(2deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-mark,
+  .badge-live__dot {
+    animation: none;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .rail-segment {
+    transform: scaleY(1);
+    transition: none;
+  }
+  .sticky-cta {
+    transition: none;
+  }
+}

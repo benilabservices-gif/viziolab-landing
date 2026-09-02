@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — VizioLab</title>
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/output.css">
+</head>
+<body class="bg-viz-black font-body text-white antialiased">
+  <header class="border-b border-white/10">
+    <div class="mx-auto flex max-w-3xl items-center justify-between px-5 py-4">
+      <a href="/index.html" class="flex items-center gap-2">
+        <img src="/assets/mark.svg" alt="" class="h-6 w-6" aria-hidden="true">
+        <span class="font-heading font-bold tracking-wide">VIZIOLAB</span>
+      </a>
+      <a href="/index.html" class="font-body text-sm text-viz-fog hover:text-white">← Retour à l'accueil</a>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-3xl px-5 py-16">
+    <h1 class="font-heading text-3xl font-bold uppercase">Contact</h1>
+    <div class="mt-8 space-y-3 font-body text-white/75">
+      <p>Une question sur le challenge ou sur VizioLab&nbsp;?</p>
+      <p>Email&nbsp;: <a href="mailto:contact@viziolab.example" class="text-viz-yellow underline">[À COMPLÉTER]</a></p>
+      <p>WhatsApp&nbsp;: <a href="#" class="text-viz-yellow underline">[À COMPLÉTER]</a></p>
+    </div>
+  </main>
+
+  <footer class="border-t border-white/10 px-5 py-10">
+    <div class="mx-auto max-w-3xl">
+      <nav class="flex flex-wrap gap-x-6 gap-y-2 font-body text-sm text-viz-fog">
+        <a href="/mentions-legales.html" class="hover:text-white">Mentions légales</a>
+        <a href="/confidentialite.html" class="hover:text-white">Confidentialité</a>
+        <a href="/contact.html" class="hover:text-white">Contact</a>
+      </nav>
+      <p class="mt-6 font-body text-xs text-viz-fog">© <span data-year></span> VizioLab</p>
+    </div>
+  </footer>
+  <script>document.querySelector("[data-year]").textContent = new Date().getFullYear();</script>
+</body>
+</html>
