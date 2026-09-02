@@ -77,7 +77,7 @@ export function initFormModal() {
     });
   });
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     if (errorEl) errorEl.classList.add("hidden");
 
@@ -116,12 +116,26 @@ export function initFormModal() {
       tags,
     };
 
-    // Emplacement pour brancher l'envoi réel (webhook Zapier, Google Sheets, CRM...) :
-    // fetch("WEBHOOK_URL_PLACEHOLDER", { method: "POST", body: JSON.stringify(payload) });
+    const submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn?.setAttribute("disabled", "true");
+
+    try {
+      const res = await fetch("/.netlify/functions/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) {
+        console.error("Synchronisation Systeme.io echouee (cote client)", res.status);
+      }
+    } catch (err) {
+      console.error("Impossible de joindre la fonction d'inscription", err);
+    }
 
     trackEvent("Lead", payload);
     trackEvent("CompleteRegistration", payload);
 
+    submitBtn?.removeAttribute("disabled");
     form.classList.add("hidden");
     successEl?.classList.remove("hidden");
     successEl?.focus();

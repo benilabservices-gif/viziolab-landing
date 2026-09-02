@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "build": "tailwindcss -i css/input.css -o css/output.css --minify",
-    "watch": "tailwindcss -i css/input.css -o css/output.css --watch"
+    "watch": "tailwindcss -i css/input.css -o css/output.css --watch",
+    "test": "node --test tests/*.mjs"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.0"

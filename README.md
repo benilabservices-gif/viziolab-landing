@@ -20,9 +20,27 @@ Palette et typographie calées sur le logo réel (fond noir, barres diagonales r
 
 ## Formulaire d'inscription
 
-Modale déclenchée par tout élément `[data-open-form]` (`js/form-modal.js`). Champs : prénom, email, WhatsApp, objectif, situation actuelle (choix par cartes), blocage principal (optionnel). La sélection de situation + la présence d'un blocage produisent des tags de segmentation (`EXPLORATION`, `IDEE`, `DEMARRAGE`, `CROISSANCE`, `ACCOMPAGNEMENT`) envoyés avec les événements `Lead` / `CompleteRegistration`.
+Modale déclenchée par tout élément `[data-open-form]` (`js/form-modal.js`). Champs : prénom, email, WhatsApp, objectif, situation actuelle (choix par cartes), blocage principal (optionnel). La sélection de situation + la présence d'un blocage produisent des tags de segmentation (`EXPLORATION`, `IDEE`, `DEMARRAGE`, `CROISSANCE`, `ACCOMPAGNEMENT`).
 
-Le formulaire ne pousse actuellement les données que dans les événements de tracking (aucun backend branché). L'emplacement pour un envoi réel (webhook Zapier, Google Sheets, CRM) est commenté dans `js/form-modal.js`.
+À la soumission, le formulaire envoie ces données à `/.netlify/functions/subscribe`, qui synchronise le contact et ses tags dans **Systeme.io** (voir section suivante), en plus des événements de tracking `Lead` / `CompleteRegistration`. Si la synchronisation échoue (clé API manquante, API Systeme.io indisponible), l'inscription est quand même confirmée à l'utilisateur — l'échec est seulement loggé côté fonction (`console.error`, visible dans Netlify → Functions → subscribe → Logs) pour ne jamais faire porter un problème technique à la personne qui s'inscrit. Surveiller ces logs de temps en temps tant que l'intégration est récente.
+
+## Synchronisation Systeme.io
+
+La fonction `netlify/functions/subscribe.js` crée ou retrouve le contact par email (`GET /api/contacts?email=`), puis crée ou retrouve chacun de ses tags par nom (`GET /api/tags?query=`) avant de les lui assigner (`POST /api/contacts/{id}/tags`). Aucune donnée n'est dupliquée si le contact ou le tag existe déjà.
+
+**Mise en place (à faire une seule fois, dans Systeme.io puis dans Netlify — jamais dans ce repo) :**
+
+1. Dans Systeme.io : icône de profil → **Settings** → section **MCP & API keys** → **Create** une clé API publique.
+2. Dans Netlify : Site settings → **Environment variables** → ajouter `SYSTEME_API_KEY` avec cette clé. Ne jamais la commiter ni me la communiquer dans la conversation — elle reste uniquement dans Netlify et dans Systeme.io.
+3. Redéployer le site (ou déclencher un nouveau build) pour que la fonction reçoive la variable.
+
+**Déclencher la campagne mail (à faire dans Systeme.io, l'API publique ne le permet pas à distance) :**
+
+Dans Systeme.io → **Automations** (ou **Rules**) → créer une règle *"Quand un tag est ajouté"* = `IDEE` (ou `EXPLORATION` / `DEMARRAGE` / `CROISSANCE` / `ACCOMPAGNEMENT` selon le scénario voulu) → action *"Démarrer une campagne"* / *"Inscrire dans un tunnel"*. Une règle par tag si les emails doivent différer selon la situation du participant ; une seule règle sur plusieurs tags si le message est le même pour tous.
+
+**Test en local :** `netlify dev` (nécessite `netlify-cli` : `npm install -g netlify-cli` ou `npx netlify-cli dev`) avec un fichier `.env` à la racine contenant `SYSTEME_API_KEY=...` (fichier ignoré par git). Sans `netlify dev`, `npx serve .` seul ne sert pas les fonctions — la soumission du formulaire échouera silencieusement côté sync (l'inscription reste confirmée, mais rien n'est envoyé à Systeme.io).
+
+**Tests unitaires** (mock du `fetch` externe, sans appeler la vraie API) : `npm test` — couvre la création/réutilisation de contact et de tag, la déduplication des tags, et les codes de retour de la fonction.
 
 ## Tracking
 
@@ -38,7 +56,8 @@ Même principe que les autres projets de la stack : `netlify.toml` pointe `npm r
 
 - Coordonnées réelles dans `mentions-legales.html`, `confidentialite.html`, `contact.html` (actuellement `[À COMPLÉTER]`) — raison sociale, RCCM/adresse, email, WhatsApp. Ce sont des informations légales/de contact réelles : je ne les invente pas, il faut me les fournir.
 - Section 15 (`#preuves`) assume honnêtement l'absence de témoignages ("pas encore de témoignages ici") plutôt que d'en inventer — à remplacer par une vraie grille de témoignages dès qu'il y en a (captures, citations, vidéos réelles).
-- Pixels Meta/TikTok/GA et webhook du formulaire (voir sections Tracking et Formulaire ci-dessus) — identifiants réels à fournir.
+- Pixels Meta/TikTok/GA (voir section Tracking ci-dessus) — identifiants réels à fournir.
+- Variable d'environnement Netlify `SYSTEME_API_KEY` + règle d'automatisation Systeme.io sur les tags (voir section Synchronisation Systeme.io ci-dessus) — à faire une fois, côté Systeme.io/Netlify.
 - URL canonique (`https://viziolab.example/`) à remplacer par le vrai domaine une fois choisi.
 
 Image Open Graph : générée (`/assets/og-image.jpg`, 1200×630, reprend le hero et le mark).
