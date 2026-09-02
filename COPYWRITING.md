@@ -257,7 +257,19 @@ Si l'accompagnement est pertinent pour toi, VizioLab te présentera la solution 
 
 ## SECTION 15 — PREUVE SOCIALE
 
-*Emplacement réservé aux témoignages, captures, réalisations, photos et vidéos réels. `[À COMPLÉTER]` — aucun témoignage, nom, chiffre ou logo n'est inventé tant que le contenu n'est pas fourni.*
+**Eyebrow**
+Preuve sociale
+
+**Titre**
+Pas encore de témoignages ici. Ce sera peut-être le tien.
+
+**Corps**
+VizioLab Challenge n'a pas encore d'édition derrière lui — seulement une méthode et une exigence de résultat concret. Les captures et retours des premiers participants viendront remplacer ce bloc, édition après édition. Rien n'est mis en scène en attendant.
+
+**CTA**
+Je rejoins la première promotion
+
+*Dès que du contenu réel existe (captures, citations, noms, vidéos), remplacer ce bloc par une vraie grille de témoignages — jamais l'inverse.*
 
 ---
 

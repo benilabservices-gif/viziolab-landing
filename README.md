@@ -37,7 +37,7 @@ Même principe que les autres projets de la stack : `netlify.toml` pointe `npm r
 ## À compléter avant mise en ligne
 
 - Coordonnées réelles dans `mentions-legales.html`, `confidentialite.html`, `contact.html` (actuellement `[À COMPLÉTER]`) — raison sociale, RCCM/adresse, email, WhatsApp. Ce sont des informations légales/de contact réelles : je ne les invente pas, il faut me les fournir.
-- Témoignages/preuves réels en section 15 (`#preuves`) — aucun contenu fictif n'a été inséré, à remplacer dès que du contenu réel existe.
+- Section 15 (`#preuves`) assume honnêtement l'absence de témoignages ("pas encore de témoignages ici") plutôt que d'en inventer — à remplacer par une vraie grille de témoignages dès qu'il y en a (captures, citations, vidéos réelles).
 - Pixels Meta/TikTok/GA et webhook du formulaire (voir sections Tracking et Formulaire ci-dessus) — identifiants réels à fournir.
 - URL canonique (`https://viziolab.example/`) à remplacer par le vrai domaine une fois choisi.
 
