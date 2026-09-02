@@ -1,4 +1,5 @@
 import { trackEvent } from "./tracking.js";
+import { markSignedUp } from "./exit-intent.js";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -136,6 +137,7 @@ export function initFormModal() {
 
     trackEvent("Lead", payload);
     trackEvent("CompleteRegistration", payload);
+    markSignedUp();
 
     submitBtn?.removeAttribute("disabled");
     formIntro?.classList.add("hidden");

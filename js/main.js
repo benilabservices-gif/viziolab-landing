@@ -3,6 +3,7 @@ import { initReveal } from "./reveal.js";
 import { initNav } from "./nav.js";
 import { initFaq } from "./faq.js";
 import { initFormModal } from "./form-modal.js";
+import { initExitIntent } from "./exit-intent.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const yearEl = document.querySelector("[data-year]");
@@ -12,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initReveal();
   initFaq();
   initFormModal();
+  initExitIntent();
 
   trackEvent("PageView");
   trackEvent("ViewContent", { page: "viziolab_challenge_landing" });
