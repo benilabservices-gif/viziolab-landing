@@ -3,6 +3,8 @@
 Angle retenu : **B — Preuve par la construction**, avec l'IA comme accélérateur (angle C, section 6) et la clarté (angle A) comme sous-texte émotionnel du hero et de la section problème.
 Headline retenue : variante n°1, enrichie par le contraste "10 idées → 1 projet" en sous-headline.
 
+**Repositionnement niche (post-lancement)** : VizioLab s'appuie spécifiquement sur les leviers IA vidéo et IA graphisme, et sur des business models comme les chaînes YouTube faceless / comptes IA. Le copy générique "business digital" a été resserré partout sur ce positionnement (hero, problème, IA, pour qui, FAQ) — voir sections mises à jour ci-dessous.
+
 Toutes les preuves sociales, chiffres, dates et places disponibles sont en placeholder `[À COMPLÉTER]` — rien n'est inventé.
 
 ---
@@ -13,10 +15,10 @@ Toutes les preuves sociales, chiffres, dates et places disponibles sont en place
 🔥 CHALLENGE GRATUIT — 3 JOURS
 
 **Headline**
-3 JOURS POUR ARRÊTER DE CHERCHER TON BUSINESS DIGITAL ET COMMENCER À LE CONSTRUIRE.
+ARRÊTE DE CHERCHER TON BUSINESS DE CONTENU IA. COMMENCE À LE CONSTRUIRE.
 
 **Sous-headline**
-En 3 jours, passe de 10 idées dans ta tête à 1 projet entre tes mains : clarifie ton idée, construis ton premier actif digital, et découvre comment utiliser l'IA pour accélérer ton passage à l'action.
+En 3 jours, passe de 10 idées de business IA (chaîne YouTube faceless, contenu vidéo, visuels générés par IA...) à 1 projet entre tes mains : clarifie ton modèle, construis ton premier actif, et repars avec un plan d'action.
 
 **CTA principal**
 JE REJOINS LE CHALLENGE GRATUIT
@@ -32,10 +34,10 @@ JE REJOINS LE CHALLENGE GRATUIT
 Tu n'as probablement pas un problème d'idées. Tu as un problème de direction.
 
 **Symptômes**
-- Tu regardes des vidéos sur le business digital, mais tu ne passes pas à l'action.
-- Tu as 10 idées et tu ne sais pas laquelle choisir.
+- Tu regardes des chaînes YouTube faceless ou des comptes IA qui cartonnent, mais tu ne sais pas par où commencer pour reproduire ça.
+- Tu as 10 idées de business IA (vidéo, visuels, contenu) et tu ne sais pas laquelle choisir.
 - Tu commences plusieurs projets et tu n'en termines aucun.
-- Tu veux utiliser l'IA, mais tu ne sais pas quoi automatiser.
+- Tu veux utiliser l'IA pour créer du contenu, mais tu ne sais pas quels outils ni quel workflow.
 - Tu publies sur les réseaux sans véritable stratégie.
 - Tu veux gagner de l'argent en ligne, mais tu ne sais pas par où commencer.
 - Tu apprends beaucoup, mais tu construis peu.
@@ -87,7 +89,7 @@ Tu vas :
 ### JOUR 2 — CONSTRUIS
 **Transforme ton idée en premier actif digital**
 
-Tu vas apprendre à utiliser l'IA pour transformer ton idée en premier livrable concret : contenu, offre, produit digital, concept YouTube, branding, service ou prototype, selon ton projet.
+Tu vas apprendre à utiliser l'IA pour transformer ton idée en premier livrable concret : vidéo, concept de chaîne YouTube faceless, visuels, contenu, offre ou prototype, selon ton projet.
 
 **Livrable : ton premier actif digital.**
 
@@ -123,14 +125,14 @@ Tu ne repars pas seulement avec des notes. Tu repars avec quelque chose de const
 L'IA comme accélérateur, pas comme raccourci.
 
 **Corps**
-Pendant le challenge, tu vas découvrir comment utiliser l'IA pour :
-- trouver des angles ;
-- structurer une idée ;
-- produire du contenu ;
-- créer des visuels ;
+Contenu vidéo, chaînes faceless, visuels, montage — l'IA change ce que tu peux produire seul, en peu de temps. Pendant le challenge, tu vas découvrir comment utiliser l'IA pour :
+- écrire des scripts vidéo ;
+- générer des voix off ;
+- créer des visuels et vignettes ;
+- structurer un concept de chaîne ;
 - construire des offres ;
 - gagner du temps ;
-- automatiser certaines tâches.
+- automatiser montage et publication.
 
 **Message**
 L'objectif n'est pas de remplacer l'humain par l'IA. L'objectif est de te permettre de construire plus vite et plus intelligemment.
@@ -142,8 +144,8 @@ L'objectif n'est pas de remplacer l'humain par l'IA. L'objectif est de te permet
 **CE CHALLENGE EST POUR TOI SI :**
 - ✅ Tu veux te lancer dans le digital.
 - ✅ Tu as une idée mais tu ne sais pas comment la structurer.
-- ✅ Tu veux utiliser l'IA.
-- ✅ Tu veux créer du contenu.
+- ✅ Tu veux utiliser l'IA pour créer (vidéo, visuels, contenu).
+- ✅ Tu veux lancer une chaîne YouTube faceless ou un compte IA.
 - ✅ Tu veux développer une activité en ligne.
 - ✅ Tu veux transformer une compétence en offre.
 - ✅ Tu veux enfin passer à l'action.
@@ -286,6 +288,9 @@ Non, aucune connaissance préalable n'est nécessaire. Tu apprends à t'en servi
 
 **Est-ce adapté aux débutants ?**
 Oui, le challenge est conçu pour être accessible aux débutants comme à ceux qui ont déjà commencé.
+
+**Faut-il savoir filmer ou monter des vidéos ?**
+Non. L'approche est pensée pour du contenu assisté par l'IA (scripts, voix off, visuels, montage) — pas besoin de compétences de tournage ou de montage classique.
 
 **Combien de temps dois-je prévoir ?**
 Environ 90 minutes par jour, pendant 3 jours.
