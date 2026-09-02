@@ -12,7 +12,7 @@ Toutes les preuves sociales, chiffres, dates et places disponibles sont en place
 ## SECTION 1 — HERO
 
 **Badge**
-🔥 CHALLENGE GRATUIT — 3 JOURS
+🔥 CHALLENGE GRATUIT — 15-17 SEPT.
 
 **Headline**
 ARRÊTE DE CHERCHER TON BUSINESS DE CONTENU IA. COMMENCE À LE CONSTRUIRE.
@@ -24,7 +24,7 @@ En 3 jours, passe de 10 idées de business IA (chaîne YouTube faceless, contenu
 JE REJOINS LE CHALLENGE GRATUIT
 
 **Micro-copy**
-100 % en ligne • 3 jours • orienté pratique
+Du 15 au 17 septembre • 100 % en ligne • 90 minutes par jour
 
 ---
 
@@ -219,7 +219,7 @@ Le challenge fonctionne si tu participes réellement.
 
 JE VEUX CONSTRUIRE MON PROJET EN 3 JOURS
 
-*Gratuit • Pratique • En ligne*
+*Gratuit • Du 15 au 17 septembre • En ligne*
 
 ---
 
@@ -277,6 +277,9 @@ Je rejoins la première promotion
 
 ## SECTION 16 — FAQ
 
+**Quand a lieu le challenge ?**
+Du 15 au 17 septembre, 100 % en ligne.
+
 **Est-ce vraiment gratuit ?**
 Oui, le challenge est gratuit.
 
@@ -323,7 +326,7 @@ Donne-toi 3 jours pour clarifier, construire et décider de ta prochaine étape.
 **CTA**
 JE REJOINS LE CHALLENGE
 
-*Gratuit • 3 jours • 100 % en ligne*
+*Gratuit • Du 15 au 17 septembre • 100 % en ligne*
 
 ---
 
