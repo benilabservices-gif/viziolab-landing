@@ -2,6 +2,8 @@ import { test, before, after, beforeEach } from "node:test";
 import assert from "node:assert/strict";
 import { syncToSysteme, handler } from "../netlify/functions/subscribe.js";
 
+const CHALLENGE_TAG_ID = 2159157;
+
 let calls;
 let queue;
 const realFetch = global.fetch;
@@ -26,17 +28,15 @@ beforeEach(() => {
   calls = [];
   queue = [];
   global.fetch = async (url, options) => {
-    calls.push({ url, method: options?.method || "GET" });
+    calls.push({ url, method: options?.method || "GET", body: options?.body });
     if (queue.length === 0) throw new Error(`Unexpected fetch call: ${url}`);
     return queue.shift();
   };
 });
 
-test("syncToSysteme creates a new contact and a new tag when neither exists", async () => {
+test("syncToSysteme creates a new contact and attaches the fixed challenge tag", async () => {
   queue.push(mockResponse(200, { items: [] })); // GET contacts?email=
   queue.push(mockResponse(201, { id: 42 })); // POST contacts
-  queue.push(mockResponse(200, { items: [] })); // GET tags?query=IDEE
-  queue.push(mockResponse(201, { id: 7 })); // POST tags
   queue.push(mockResponse(201, {})); // POST contacts/42/tags
 
   const result = await syncToSysteme({
@@ -44,49 +44,43 @@ test("syncToSysteme creates a new contact and a new tag when neither exists", as
     email: "awa@example.com",
     whatsapp: "+22900000000",
     situation: "IDEE",
-    tags: ["IDEE"],
   });
 
   assert.equal(result.contactId, 42);
-  assert.deepEqual(result.tags, ["IDEE"]);
-  assert.equal(calls.length, 5);
+  assert.equal(result.tagId, CHALLENGE_TAG_ID);
+  assert.equal(calls.length, 3);
   assert.match(calls[0].url, /\/contacts\?email=/);
   assert.equal(calls[1].method, "POST");
   assert.match(calls[1].url, /\/contacts$/);
-  assert.match(calls[4].url, /\/contacts\/42\/tags$/);
+  assert.match(calls[2].url, /\/contacts\/42\/tags$/);
+  assert.deepEqual(JSON.parse(calls[2].body), { tagId: CHALLENGE_TAG_ID });
 });
 
-test("syncToSysteme reuses an existing contact and an existing tag", async () => {
+test("syncToSysteme reuses an existing contact and still attaches the fixed tag", async () => {
   queue.push(mockResponse(200, { items: [{ id: 99 }] })); // GET contacts?email= -> found
-  queue.push(mockResponse(200, { items: [{ id: 5, name: "DEMARRAGE" }] })); // GET tags -> found
   queue.push(mockResponse(201, {})); // POST contacts/99/tags
 
   const result = await syncToSysteme({
     email: "deja@example.com",
     situation: "DEMARRAGE",
-    tags: [],
   });
 
   assert.equal(result.contactId, 99);
-  assert.equal(calls.length, 3);
+  assert.equal(calls.length, 2);
   assert.equal(calls[0].method, "GET");
-  assert.equal(calls[1].method, "GET");
-  assert.equal(calls[2].method, "POST");
+  assert.equal(calls[1].method, "POST");
+  assert.match(calls[1].url, /\/contacts\/99\/tags$/);
 });
 
-test("syncToSysteme deduplicates the situation tag against the tags array", async () => {
-  queue.push(mockResponse(200, { items: [{ id: 1 }] })); // contact found
-  queue.push(mockResponse(200, { items: [{ id: 10, name: "ACCOMPAGNEMENT" }] })); // tag found (situation === tags[0])
-  queue.push(mockResponse(201, {})); // assign
+test("syncToSysteme attaches the same tag regardless of situation value", async () => {
+  for (const situation of ["EXPLORATION", "IDEE", "DEMARRAGE", "CROISSANCE"]) {
+    queue.push(mockResponse(200, { items: [{ id: 1 }] }));
+    queue.push(mockResponse(201, {}));
 
-  const result = await syncToSysteme({
-    email: "x@example.com",
-    situation: "ACCOMPAGNEMENT",
-    tags: ["ACCOMPAGNEMENT"],
-  });
+    const result = await syncToSysteme({ email: "x@example.com", situation });
 
-  assert.deepEqual(result.tags, ["ACCOMPAGNEMENT"]);
-  assert.equal(calls.length, 3); // one lookup + one create/lookup + one assign, not two of each
+    assert.equal(result.tagId, CHALLENGE_TAG_ID, `situation ${situation} should still get the fixed tag`);
+  }
 });
 
 test("handler returns 400 when email or situation is missing", async () => {
@@ -99,19 +93,18 @@ test("handler returns 405 for non-POST requests", async () => {
   assert.equal(res.statusCode, 405);
 });
 
-test("handler returns 200 and forwards the payload on success", async () => {
+test("handler returns 200 and forwards the fixed tag id on success", async () => {
   queue.push(mockResponse(200, { items: [] }));
   queue.push(mockResponse(201, { id: 1 }));
-  queue.push(mockResponse(200, { items: [] }));
-  queue.push(mockResponse(201, { id: 2 }));
   queue.push(mockResponse(201, {}));
 
   const res = await handler({
     httpMethod: "POST",
-    body: JSON.stringify({ email: "ok@example.com", situation: "EXPLORATION", tags: ["EXPLORATION"] }),
+    body: JSON.stringify({ email: "ok@example.com", situation: "EXPLORATION" }),
   });
 
   assert.equal(res.statusCode, 200);
   const body = JSON.parse(res.body);
   assert.equal(body.ok, true);
+  assert.equal(body.tagId, CHALLENGE_TAG_ID);
 });

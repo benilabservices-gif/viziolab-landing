@@ -1,5 +1,13 @@
 const API_BASE = "https://api.systeme.io/api";
 
+// Compte Systeme.io en plan gratuit : un seul tag personnalise autorise.
+// Toute tentative de creer un tag distinct par situation (EXPLORATION,
+// DEMARRAGE...) echoue une fois ce quota atteint, ce qui interrompait la
+// synchronisation avant meme d'atteindre le tag suivant - certains contacts se
+// retrouvaient donc sans aucun tag. On attache desormais ce tag existant a
+// tout le monde, inconditionnellement, quelle que soit la situation choisie.
+const CHALLENGE_TAG_ID = 2159157;
+
 function json(statusCode, body) {
   return {
     statusCode,
@@ -43,17 +51,6 @@ async function findOrCreateContact({ email, prenom, whatsapp }) {
   return created.id;
 }
 
-async function findOrCreateTag(name) {
-  const existing = await systemeFetch(`/tags?query=${encodeURIComponent(name)}`);
-  const match = (existing?.items || []).find((t) => t.name.toLowerCase() === name.toLowerCase());
-  if (match) return match.id;
-  const created = await systemeFetch("/tags", {
-    method: "POST",
-    body: JSON.stringify({ name }),
-  });
-  return created.id;
-}
-
 async function assignTag(contactId, tagId) {
   await systemeFetch(`/contacts/${contactId}/tags`, {
     method: "POST",
@@ -61,14 +58,10 @@ async function assignTag(contactId, tagId) {
   });
 }
 
-export async function syncToSysteme({ prenom, email, whatsapp, situation, tags = [] }) {
+export async function syncToSysteme({ prenom, email, whatsapp, situation }) {
   const contactId = await findOrCreateContact({ email, prenom, whatsapp });
-  const uniqueTags = [...new Set([situation, ...tags].filter(Boolean))];
-  for (const tagName of uniqueTags) {
-    const tagId = await findOrCreateTag(tagName);
-    await assignTag(contactId, tagId);
-  }
-  return { contactId, tags: uniqueTags };
+  await assignTag(contactId, CHALLENGE_TAG_ID);
+  return { contactId, tagId: CHALLENGE_TAG_ID, situation };
 }
 
 export async function handler(event) {
@@ -87,13 +80,13 @@ export async function handler(event) {
     return json(400, { error: "invalid_json" });
   }
 
-  const { prenom, email, whatsapp, situation, tags } = payload;
+  const { prenom, email, whatsapp, situation } = payload;
   if (!email || !situation) {
     return json(400, { error: "missing_fields" });
   }
 
   try {
-    const result = await syncToSysteme({ prenom, email, whatsapp, situation, tags });
+    const result = await syncToSysteme({ prenom, email, whatsapp, situation });
     return json(200, { ok: true, ...result });
   } catch (err) {
     console.error("Synchronisation Systeme.io echouee", err.status, err.data || err.message);
