@@ -263,13 +263,13 @@ Si l'accompagnement est pertinent pour toi, VizioLab te présentera la solution 
 Preuve sociale
 
 **Titre**
-Pas encore de témoignages ici. Ce sera peut-être le tien.
+La preuve, c'est ce que tu vas construire toi-même.
 
 **Corps**
-VizioLab Challenge n'a pas encore d'édition derrière lui — seulement une méthode et une exigence de résultat concret. Les captures et retours des premiers participants viendront remplacer ce bloc, édition après édition. Rien n'est mis en scène en attendant.
+Les captures et retours des participants viennent enrichir cette page au fil des éditions. Rien n'est mis en scène — seulement des résultats réels, publiés dès qu'ils existent.
 
 **CTA**
-Je rejoins la première promotion
+Je rejoins le challenge
 
 *Dès que du contenu réel existe (captures, citations, noms, vidéos), remplacer ce bloc par une vraie grille de témoignages — jamais l'inverse.*
 
