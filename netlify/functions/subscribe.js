@@ -90,7 +90,6 @@ export async function handler(event) {
     return json(200, { ok: true, ...result });
   } catch (err) {
     console.error("Synchronisation Systeme.io echouee", err.status, err.data || err.message);
-    // DEBUG TEMPORAIRE - a retirer une fois le diagnostic termine.
-    return json(502, { error: "systeme_sync_failed", debugStatus: err.status, debugData: err.data || String(err.message) });
+    return json(502, { error: "systeme_sync_failed" });
   }
 }
