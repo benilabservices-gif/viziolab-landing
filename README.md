@@ -4,6 +4,12 @@ Landing page statique (HTML/CSS/JS vanilla, Tailwind en build) pour le Challenge
 
 Documents de cadrage (stratégie, copywriting, wireframe/UX) : [COPYWRITING.md](COPYWRITING.md) et [WIREFRAME-UX.md](WIREFRAME-UX.md).
 
+## Page de vente VIZIO LAB 360
+
+`vizio-lab-360.html` est la page de vente de l'offre payante présentée à l'issue du Challenge (3 mois, 150 000 FCFA ou 3×50 000 FCFA). Cadrage complet : [VIZIOLAB360-STRATEGIE.md](VIZIOLAB360-STRATEGIE.md), [VIZIOLAB360-COPYWRITING.md](VIZIOLAB360-COPYWRITING.md), [VIZIOLAB360-WIREFRAME-UX.md](VIZIOLAB360-WIREFRAME-UX.md).
+
+Tous les CTA (`[data-chariow-link]`) pointent vers un placeholder défini dans `js/vizio360-main.js` (constante `CHARIOW_URL`) — à remplacer par le vrai lien de paiement Chariow dès qu'il est communiqué. Un seul endroit à modifier pour que tous les boutons de la page se mettent à jour.
+
 ## Développement local
 
     npm install

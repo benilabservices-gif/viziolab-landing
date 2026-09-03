@@ -156,6 +156,11 @@
     background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
     background-size: 22px 22px;
   }
+
+  /* --- Bandeau d'urgence : seule vraie urgence chiffree du site --- */
+  .urgency-banner {
+    @apply flex flex-wrap items-center justify-center gap-x-3 gap-y-1 bg-viz-red px-4 py-3 text-center font-heading text-xs font-bold uppercase tracking-wide text-white sm:text-sm;
+  }
 }
 
 @keyframes pulse-dot {
