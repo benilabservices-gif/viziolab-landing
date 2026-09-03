@@ -6,13 +6,10 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 export function initFormModal() {
   const overlay = document.querySelector("[data-form-overlay]");
   const panel = overlay?.querySelector(".modal-panel");
-  const formIntro = overlay?.querySelector("[data-form-intro]");
   const form = overlay?.querySelector("[data-signup-form]");
-  const successEl = overlay?.querySelector("[data-form-success]");
   const errorEl = overlay?.querySelector("[data-form-error]");
   const situationGroup = overlay?.querySelector("[data-situation-group]");
   const situationInput = overlay?.querySelector("[data-situation-value]");
-  const joinGroupLink = overlay?.querySelector("[data-join-group]");
 
   if (!overlay || !panel || !form) return;
 
@@ -139,14 +136,6 @@ export function initFormModal() {
     trackEvent("CompleteRegistration", payload);
     markSignedUp();
 
-    submitBtn?.removeAttribute("disabled");
-    formIntro?.classList.add("hidden");
-    form.classList.add("hidden");
-    successEl?.classList.remove("hidden");
-    successEl?.focus();
-  });
-
-  joinGroupLink?.addEventListener("click", () => {
-    trackEvent("CTA_Click", { label: "join_whatsapp_group" });
+    window.location.href = "/merci.html";
   });
 }

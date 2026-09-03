@@ -22,7 +22,9 @@ Palette et typographie calées sur le logo réel (fond noir, barres diagonales r
 
 Modale déclenchée par tout élément `[data-open-form]` (`js/form-modal.js`). Champs : prénom, email, WhatsApp, objectif, situation actuelle (choix par cartes), blocage principal (optionnel). La sélection de situation + la présence d'un blocage produisent des tags de segmentation (`EXPLORATION`, `IDEE`, `DEMARRAGE`, `CROISSANCE`, `ACCOMPAGNEMENT`).
 
-À la soumission, le formulaire envoie ces données à `/.netlify/functions/subscribe`, qui synchronise le contact et ses tags dans **Systeme.io** (voir section suivante), en plus des événements de tracking `Lead` / `CompleteRegistration`. Si la synchronisation échoue (clé API manquante, API Systeme.io indisponible), l'inscription est quand même confirmée à l'utilisateur — l'échec est seulement loggé côté fonction (`console.error`, visible dans Netlify → Functions → subscribe → Logs) pour ne jamais faire porter un problème technique à la personne qui s'inscrit. Surveiller ces logs de temps en temps tant que l'intégration est récente.
+À la soumission, le formulaire envoie ces données à `/.netlify/functions/subscribe`, qui synchronise le contact et ses tags dans **Systeme.io** (voir section suivante), en plus des événements de tracking `Lead` / `CompleteRegistration`, puis redirige vers `/merci.html`. Si la synchronisation échoue (clé API manquante, API Systeme.io indisponible), l'inscription est quand même confirmée à l'utilisateur — l'échec est seulement loggé côté fonction (`console.error`, visible dans Netlify → Functions → subscribe → Logs) pour ne jamais faire porter un problème technique à la personne qui s'inscrit. Surveiller ces logs de temps en temps tant que l'intégration est récente.
+
+`merci.html` est la page de remerciement (indexation désactivée via `noindex`) : rappel de l'importance de vérifier les spams/promotions, CTA vers le groupe WhatsApp, aperçu de l'email de bienvenue, 3 étapes pour le retrouver, et rappel des conditions d'engagement.
 
 ## Synchronisation Systeme.io
 
