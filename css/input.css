@@ -73,12 +73,16 @@
   }
 
   /* --- Reveal au scroll --- */
-  .reveal {
+  /* Le contenu est visible par defaut : seul un JS confirme actif (classe js-ready sur html)
+     peut le cacher en attendant l'apparition. Si le JS echoue ou tarde sur un appareil,
+     rien ne reste invisible. */
+  .js-ready .reveal {
     opacity: 0;
     transform: translateY(1.5rem);
     transition: opacity 0.7s ease, transform 0.7s ease;
   }
-  .reveal.is-visible {
+  .reveal.is-visible,
+  .js-ready .reveal.is-visible {
     opacity: 1;
     transform: translateY(0);
   }
