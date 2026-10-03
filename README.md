@@ -35,7 +35,7 @@ Le lien Chariow est défini à un seul endroit : la constante `CHARIOW_URL` dans
 
 Un échec de synchronisation Systeme.io ne bloque jamais le paiement (Chariow recueille de toute façon les coordonnées de l'acheteur) : il est seulement loggé (Netlify → Functions → subscribe → Logs).
 
-L'accès au **groupe WhatsApp privé** est remis par Chariow après paiement. Son lien ne doit jamais apparaître dans une page publique du site. `merci.html` peut servir de page de retour après paiement (URL de redirection à configurer dans Chariow) : rappel des dates, des bons réflexes email et de l'accès au groupe via la confirmation Chariow.
+`merci.html` est la **page de retour Chariow après paiement** (URL de redirection à configurer dans Chariow : `https://vizio-lab.online/merci.html`). Elle affiche le bouton d'accès au **groupe WhatsApp privé** du challenge, puis les bons réflexes email. Elle n'est liée depuis aucune page du site et porte un `noindex`, mais son URL reste devinable : le lien du groupe n'est pas protégé contre un accès direct sans paiement.
 
 Tracking : `CTA_Click` (avec `label`), `Lead` puis `InitiateCheckout` (3 000 XOF) à la soumission. Aucune donnée personnelle (email, WhatsApp) n'est transmise aux pixels.
 
