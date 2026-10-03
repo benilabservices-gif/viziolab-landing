@@ -1,6 +1,6 @@
 # VizioLab Challenge — Landing Page
 
-Landing page statique (HTML/CSS/JS vanilla, Tailwind en build) pour le Challenge VizioLab — 3 jours pour construire son projet digital. Objectif : inscriptions qualifiées au challenge, formulaire de segmentation en modale, ouverture naturelle vers le diagnostic/accompagnement.
+Landing page statique (HTML/CSS/JS vanilla, Tailwind en build) du Viziolab Challenge — 3 jours pour apprendre à créer des vidéos avec l'IA (édition des 13, 14 et 15 octobre, participation 3 000 FCFA payée sur Chariow).
 
 Documents de cadrage (stratégie, copywriting, wireframe/UX) : [COPYWRITING.md](COPYWRITING.md) et [WIREFRAME-UX.md](WIREFRAME-UX.md).
 
@@ -24,15 +24,22 @@ Palette et typographie calées sur le logo réel (fond noir, barres diagonales r
 - Titres/eyebrows (`font-heading`, Space Grotesk) : H2/H3, badges, nav, boutons.
 - Corps (`font-body`, Inter) : paragraphes, FAQ, formulaire.
 
-## Formulaire d'inscription
+## Inscription et paiement (challenge payant, 3 000 FCFA)
 
-Modale déclenchée par tout élément `[data-open-form]` (`js/form-modal.js`). Champs : prénom, email, WhatsApp, objectif, situation actuelle (choix par cartes), blocage principal (optionnel).
+Tout bouton `[data-open-form]` ouvre une modale (`js/form-modal.js`) qui demande prénom, email et WhatsApp. À la soumission :
 
-**Tag unique (contrainte du plan gratuit Systeme.io)** : le compte Systeme.io connecté est en plan gratuit, qui n'autorise qu'un seul tag personnalisé. La segmentation par situation (`EXPLORATION`/`IDEE`/`DEMARRAGE`/`CROISSANCE`) n'est donc plus utilisée côté Systeme.io — chaque inscription se voit systématiquement attacher le même tag existant (`IDEE`, id `2159157`, constante `CHALLENGE_TAG_ID` dans `netlify/functions/subscribe.js`), quelle que soit la réponse choisie. C'est ce tag qui doit être ciblé par la règle d'automatisation déclenchant la campagne email. La réponse de situation continue d'être envoyée dans les événements de tracking (`Lead`/`CompleteRegistration`) même si elle n'est plus taguée. Si le compte passe un jour sur un plan payant (tags illimités), la segmentation multi-tags peut être réintroduite dans `syncToSysteme`.
+1. le contact est envoyé à `/.netlify/functions/subscribe`, qui le crée ou le retrouve dans **Systeme.io** et lui attache le tag fixe (voir section suivante) ;
+2. le visiteur est redirigé vers la **page de paiement Chariow** du challenge.
 
-À la soumission, le formulaire envoie ces données à `/.netlify/functions/subscribe`, qui synchronise le contact et ses tags dans **Systeme.io** (voir section suivante), en plus des événements de tracking `Lead` / `CompleteRegistration`, puis redirige vers `/merci.html`. Si la synchronisation échoue (clé API manquante, API Systeme.io indisponible), l'inscription est quand même confirmée à l'utilisateur — l'échec est seulement loggé côté fonction (`console.error`, visible dans Netlify → Functions → subscribe → Logs) pour ne jamais faire porter un problème technique à la personne qui s'inscrit. Surveiller ces logs de temps en temps tant que l'intégration est récente.
+Le lien Chariow est défini à un seul endroit : la constante `CHARIOW_URL` dans `js/challenge-config.js`. Tant qu'elle contient le placeholder `URL_CHARIOW_A_REMPLACER`, le formulaire affiche un message « paiement pas encore ouvert » au lieu de rediriger.
 
-`merci.html` est la page de remerciement (indexation désactivée via `noindex`) : rappel de l'importance de vérifier les spams/promotions, CTA vers le groupe WhatsApp, aperçu de l'email de bienvenue, 3 étapes pour le retrouver, et rappel des conditions d'engagement.
+Un échec de synchronisation Systeme.io ne bloque jamais le paiement (Chariow recueille de toute façon les coordonnées de l'acheteur) : il est seulement loggé (Netlify → Functions → subscribe → Logs).
+
+L'accès au **groupe WhatsApp privé** est remis par Chariow après paiement. Son lien ne doit jamais apparaître dans une page publique du site. `merci.html` peut servir de page de retour après paiement (URL de redirection à configurer dans Chariow) : rappel des dates, des bons réflexes email et de l'accès au groupe via la confirmation Chariow.
+
+Tracking : `CTA_Click` (avec `label`), `Lead` puis `InitiateCheckout` (3 000 XOF) à la soumission. Aucune donnée personnelle (email, WhatsApp) n'est transmise aux pixels.
+
+**Tag unique (contrainte du plan gratuit Systeme.io)** : le compte n'autorise qu'un seul tag personnalisé. Chaque contact reçoit le tag existant `IDEE` (id `2159157`, constante `CHALLENGE_TAG_ID` dans `netlify/functions/subscribe.js`). C'est ce tag que cible la règle d'automatisation qui déclenche la campagne email : son contenu doit correspondre à l'édition en cours.
 
 ## Synchronisation Systeme.io
 
