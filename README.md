@@ -31,7 +31,7 @@ Tout bouton `[data-open-form]` ouvre une modale (`js/form-modal.js`) qui demande
 1. le contact est envoyé à `/.netlify/functions/subscribe`, qui le crée ou le retrouve dans **Systeme.io** et lui attache le tag fixe (voir section suivante) ;
 2. le visiteur est redirigé vers la **page de paiement Chariow** du challenge.
 
-Le lien Chariow est défini à un seul endroit : la constante `CHARIOW_URL` dans `js/challenge-config.js`. Tant qu'elle contient le placeholder `URL_CHARIOW_A_REMPLACER`, le formulaire affiche un message « paiement pas encore ouvert » au lieu de rediriger.
+Le lien Chariow est défini à un seul endroit : la constante `CHARIOW_URL` dans `js/challenge-config.js`. Si elle ne contient pas une URL https valide, le formulaire affiche un message « paiement pas encore ouvert » au lieu de rediriger.
 
 Un échec de synchronisation Systeme.io ne bloque jamais le paiement (Chariow recueille de toute façon les coordonnées de l'acheteur) : il est seulement loggé (Netlify → Functions → subscribe → Logs).
 
