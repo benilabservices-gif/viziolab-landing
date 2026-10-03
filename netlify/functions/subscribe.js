@@ -58,10 +58,10 @@ async function assignTag(contactId, tagId) {
   });
 }
 
-export async function syncToSysteme({ prenom, email, whatsapp, situation }) {
+export async function syncToSysteme({ prenom, email, whatsapp }) {
   const contactId = await findOrCreateContact({ email, prenom, whatsapp });
   await assignTag(contactId, CHALLENGE_TAG_ID);
-  return { contactId, tagId: CHALLENGE_TAG_ID, situation };
+  return { contactId, tagId: CHALLENGE_TAG_ID };
 }
 
 export async function handler(event) {
@@ -80,13 +80,13 @@ export async function handler(event) {
     return json(400, { error: "invalid_json" });
   }
 
-  const { prenom, email, whatsapp, situation } = payload;
-  if (!email || !situation) {
+  const { prenom, email, whatsapp } = payload;
+  if (!email) {
     return json(400, { error: "missing_fields" });
   }
 
   try {
-    const result = await syncToSysteme({ prenom, email, whatsapp, situation });
+    const result = await syncToSysteme({ prenom, email, whatsapp });
     return json(200, { ok: true, ...result });
   } catch (err) {
     console.error("Synchronisation Systeme.io echouee", err.status, err.data || err.message);
