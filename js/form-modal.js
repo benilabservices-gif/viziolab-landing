@@ -1,5 +1,5 @@
 import { trackEvent } from "./tracking.js";
-import { markSignedUp } from "./exit-intent.js";
+import { CHARIOW_URL, isCheckoutConfigured } from "./challenge-config.js";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -8,8 +8,6 @@ export function initFormModal() {
   const panel = overlay?.querySelector(".modal-panel");
   const form = overlay?.querySelector("[data-signup-form]");
   const errorEl = overlay?.querySelector("[data-form-error]");
-  const situationGroup = overlay?.querySelector("[data-situation-group]");
-  const situationInput = overlay?.querySelector("[data-situation-value]");
 
   if (!overlay || !panel || !form) return;
 
@@ -35,6 +33,12 @@ export function initFormModal() {
     document.body.style.overflow = "";
     document.removeEventListener("keydown", handleKeydown);
     if (lastFocusedEl instanceof HTMLElement) lastFocusedEl.focus();
+  }
+
+  function showError(message) {
+    if (!errorEl) return;
+    errorEl.textContent = message;
+    errorEl.classList.remove("hidden");
   }
 
   function handleKeydown(e) {
@@ -69,14 +73,6 @@ export function initFormModal() {
   });
   overlay.querySelector("[data-close-form]")?.addEventListener("click", closeModal);
 
-  situationGroup?.querySelectorAll(".choice-card").forEach((card) => {
-    card.addEventListener("click", () => {
-      situationGroup.querySelectorAll(".choice-card").forEach((c) => c.setAttribute("aria-pressed", "false"));
-      card.setAttribute("aria-pressed", "true");
-      if (situationInput) situationInput.value = card.dataset.situation;
-    });
-  });
-
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     if (errorEl) errorEl.classList.add("hidden");
@@ -85,45 +81,31 @@ export function initFormModal() {
     const prenom = String(data.get("prenom") || "").trim();
     const email = String(data.get("email") || "").trim();
     const whatsapp = String(data.get("whatsapp") || "").trim();
-    const situation = String(data.get("situation") || "").trim();
-    const blocage = String(data.get("blocage") || "").trim();
 
-    if (!prenom || !email || !whatsapp || !situation) {
-      if (errorEl) {
-        errorEl.textContent = "Merci de remplir ton prénom, ton email, ton WhatsApp et de choisir où tu en es.";
-        errorEl.classList.remove("hidden");
-      }
+    if (!prenom || !email || !whatsapp) {
+      showError("Merci de renseigner votre prénom, votre email et votre WhatsApp.");
       return;
     }
     if (!EMAIL_RE.test(email)) {
-      if (errorEl) {
-        errorEl.textContent = "Cet email ne semble pas valide.";
-        errorEl.classList.remove("hidden");
-      }
+      showError("Cet email ne semble pas valide.");
       return;
     }
-
-    const tags = [situation];
-    if (blocage) tags.push("ACCOMPAGNEMENT");
-
-    const payload = {
-      prenom,
-      email,
-      whatsapp,
-      objectif: String(data.get("objectif") || "").trim(),
-      situation,
-      blocage,
-      tags,
-    };
+    if (!isCheckoutConfigured()) {
+      console.error("Lien de paiement Chariow non configure (js/challenge-config.js).");
+      showError("Le paiement n'est pas encore ouvert. Réessayez un peu plus tard ou écrivez-nous à labs@benilab.co.");
+      return;
+    }
 
     const submitBtn = form.querySelector('button[type="submit"]');
     submitBtn?.setAttribute("disabled", "true");
 
+    // Un echec de synchronisation Systeme.io ne doit jamais bloquer le paiement :
+    // Chariow recueille de toute facon les coordonnees de l'acheteur.
     try {
       const res = await fetch("/.netlify/functions/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({ prenom, email, whatsapp }),
       });
       if (!res.ok) {
         console.error("Synchronisation Systeme.io echouee (cote client)", res.status);
@@ -132,10 +114,10 @@ export function initFormModal() {
       console.error("Impossible de joindre la fonction d'inscription", err);
     }
 
-    trackEvent("Lead", payload);
-    trackEvent("CompleteRegistration", payload);
-    markSignedUp();
+    // Aucune donnee personnelle (email, WhatsApp) n'est transmise aux outils de tracking.
+    trackEvent("Lead", { page: "viziolab_challenge_landing" });
+    trackEvent("InitiateCheckout", { value: 3000, currency: "XOF" });
 
-    window.location.href = "/merci.html";
+    window.location.href = CHARIOW_URL;
   });
 }

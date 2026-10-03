@@ -43,7 +43,6 @@ test("syncToSysteme creates a new contact and attaches the fixed challenge tag",
     prenom: "Awa",
     email: "awa@example.com",
     whatsapp: "+22900000000",
-    situation: "IDEE",
   });
 
   assert.equal(result.contactId, 42);
@@ -62,7 +61,6 @@ test("syncToSysteme reuses an existing contact and still attaches the fixed tag"
 
   const result = await syncToSysteme({
     email: "deja@example.com",
-    situation: "DEMARRAGE",
   });
 
   assert.equal(result.contactId, 99);
@@ -72,18 +70,7 @@ test("syncToSysteme reuses an existing contact and still attaches the fixed tag"
   assert.match(calls[1].url, /\/contacts\/99\/tags$/);
 });
 
-test("syncToSysteme attaches the same tag regardless of situation value", async () => {
-  for (const situation of ["EXPLORATION", "IDEE", "DEMARRAGE", "CROISSANCE"]) {
-    queue.push(mockResponse(200, { items: [{ id: 1 }] }));
-    queue.push(mockResponse(201, {}));
-
-    const result = await syncToSysteme({ email: "x@example.com", situation });
-
-    assert.equal(result.tagId, CHALLENGE_TAG_ID, `situation ${situation} should still get the fixed tag`);
-  }
-});
-
-test("handler returns 400 when email or situation is missing", async () => {
+test("handler returns 400 when email is missing", async () => {
   const res = await handler({ httpMethod: "POST", body: JSON.stringify({ email: "" }) });
   assert.equal(res.statusCode, 400);
 });
@@ -93,14 +80,14 @@ test("handler returns 405 for non-POST requests", async () => {
   assert.equal(res.statusCode, 405);
 });
 
-test("handler returns 200 and forwards the fixed tag id on success", async () => {
+test("handler returns 200 without any situation field (paid challenge form)", async () => {
   queue.push(mockResponse(200, { items: [] }));
   queue.push(mockResponse(201, { id: 1 }));
   queue.push(mockResponse(201, {}));
 
   const res = await handler({
     httpMethod: "POST",
-    body: JSON.stringify({ email: "ok@example.com", situation: "EXPLORATION" }),
+    body: JSON.stringify({ prenom: "Awa", email: "ok@example.com", whatsapp: "+22900000000" }),
   });
 
   assert.equal(res.statusCode, 200);
