@@ -35,7 +35,7 @@ Le lien Chariow est défini à un seul endroit : la constante `CHARIOW_URL` dans
 
 Un échec de synchronisation Systeme.io ne bloque jamais le paiement (Chariow recueille de toute façon les coordonnées de l'acheteur) : il est seulement loggé (Netlify → Functions → subscribe → Logs).
 
-`merci.html` est la **page de retour Chariow après paiement** (URL de redirection à configurer dans Chariow : `https://vizio-lab.online/merci.html`). Elle affiche le bouton d'accès au **groupe WhatsApp privé** du challenge, puis les bons réflexes email. Elle n'est liée depuis aucune page du site et porte un `noindex`, mais son URL reste devinable : le lien du groupe n'est pas protégé contre un accès direct sans paiement.
+La **page de retour Chariow après paiement** est `merci-challenge-cc727cd9.html` (URL volontairement impossible à deviner, liée depuis aucune page, `noindex`) : elle affiche le bouton d'accès au **groupe WhatsApp privé** puis les bons réflexes email. `merci.html` ne contient plus ce lien : elle renvoie les acheteurs vers labs@benilab.co. Le lien du groupe peut toujours être transmis par un acheteur : la vraie protection est l'approbation des nouveaux participants dans WhatsApp.
 
 Tracking : `CTA_Click` (avec `label`), `Lead` puis `InitiateCheckout` (3 000 XOF) à la soumission. Aucune donnée personnelle (email, WhatsApp) n'est transmise aux pixels.
 
